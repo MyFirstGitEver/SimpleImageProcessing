@@ -381,7 +381,7 @@ class ImageProcessing{
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        new ImageProcessing("cameraman.jpeg", BufferedImage.TYPE_BYTE_GRAY).threshold(80.0f).save("threshold2.png");
+        //        new ImageProcessing("cameraman.jpeg", BufferedImage.TYPE_BYTE_GRAY).threshold(80.0f).save("threshold2.png");
 
 //        new ImageProcessing("gray.jpg", BufferedImage.TYPE_BYTE_GRAY).verticalContour()
 //                .save("vertical contour.png");
