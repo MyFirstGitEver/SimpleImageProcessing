@@ -387,7 +387,8 @@ public class Main {
 //                .save("vertical contour.png");
 //        new ImageProcessing("gray.jpg", BufferedImage.TYPE_BYTE_GRAY).horizontalContour()
 //                .save("horizontal contour.png");
-        new ImageProcessing("gray.jpg", BufferedImage.TYPE_BYTE_GRAY).contour().save("contour.png");
+        //new ImageProcessing("gray.jpg", BufferedImage.TYPE_BYTE_GRAY).contour().save("contour.png");
+//        new ImageProcessing("cameraman.jpeg", BufferedImage.TYPE_BYTE_GRAY).contour().save("contour2.png");
     }
 
     private static void insert() throws IOException {
