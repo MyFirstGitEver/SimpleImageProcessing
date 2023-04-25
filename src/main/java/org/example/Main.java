@@ -400,9 +400,9 @@ public class Main {
         lena.insert(0, 0, 130, 130, processor).save("insert.png");
     }
 
-    private static  void resize() throws IOException {
+    private static  void resize(int width, int height) throws IOException {
         ImageProcessing processor = new ImageProcessing("gray.jpg", BufferedImage.TYPE_BYTE_GRAY);
-        processor.resize(100, 100).save("resized.png");
+        processor.resize(width, height).save("resized.png");
     }
 
     private static void crop() throws IOException {
