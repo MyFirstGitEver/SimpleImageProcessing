@@ -129,6 +129,10 @@ class Vector{
         return points.length;
     }
 
+    public float[] getPoints() {
+        return points;
+    }
+
     public float distanceFrom(Vector x){
         if(size() != x.size()){
             return Float.NaN;
@@ -227,6 +231,22 @@ class ImageProcessing{
     public ImageProcessing(Vector[][] pixels, int type){
         this.pixels = pixels;
         this.type = type;
+    }
+
+    public void compressUsingKMeansAndSave(int compressDegree, String savePath) throws IOException {
+        KMeansClustering model = new KMeansClustering(1, compressDegree, 200, pixels);
+        model.train();
+
+        for(int i=0;i<pixels.length;i++){
+            for(int j=0;j<pixels[0].length;j++){
+                Vector pixel = pixels[i][j];
+                Vector bestFit = model.getCenter(model.clusterNumber(pixel));
+
+                pixels[i][j] = bestFit;
+            }
+        }
+
+        save(savePath);
     }
 
     public void save(String savePath) throws IOException {
@@ -391,6 +411,9 @@ public class Main {
 //        new ImageProcessing("cameraman.jpeg", BufferedImage.TYPE_BYTE_GRAY).contour().save("contour2.png");
 
 //        new ImageProcessing("zelda.png", BufferedImage.TYPE_BYTE_GRAY).contour().save("contour3.png");
+
+        new ImageProcessing("test.png", BufferedImage.TYPE_INT_RGB).compressUsingKMeansAndSave(
+                30, "min.png");
     }
 
     private static void insert() throws IOException {
